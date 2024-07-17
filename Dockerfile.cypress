@@ -1,0 +1,22 @@
+# Use the official Node.js image
+FROM cypress/base:16.14.2-slim
+
+# Set working directory
+WORKDIR /usr/app
+
+# Install app dependencies
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install
+
+# Copy the app files
+COPY . .
+
+# Install Cypress
+RUN npm install cypress --save-dev
+
+# Set environment variable for Cypress
+ENV CI=1
+
+# Run Cypress tests
+CMD ["npx", "cypress", "run"]
