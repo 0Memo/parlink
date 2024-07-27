@@ -1,0 +1,29 @@
+button{
+    
+    margin-bottom: 50px;
+}
+
+img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo{
+    width: 80%;
+    margin-left: 10%;
+    height: auto;
+}
+
+
+@media screen and (min-width:768px){
+    .bgred{
+    background-color: red;
+}
+#main-connexion{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+}
