@@ -28,3 +28,19 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## Fichier .gitlab-cy.yml
+
+build-test:
+  image: docker:stable
+  stage: deploy
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build -t registry.alt-tools.tech/aquildev/projet-ecole/back:$CI_COMMIT_BRANCH .
+    - docker push registry.alt-tools.tech/aquildev/projet-ecole/back:$CI_COMMIT_BRANCH
+  rules:
+    - when: manual
+## -----------------------------------------------    
