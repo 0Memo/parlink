@@ -15,7 +15,11 @@ export async function signin(body:AuthSignin) {
     const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/auth/login`, body);
     return response.data;
   } catch (error:any) {
-    console.error('Login Error:', error.response || error.message);
+    if (error.response) {
+      console.error('Login Error Response:', error.response.data);
+    } else {
+      console.error('Login Error Message:', error.message);
+    }
     throw new Error(error);
   }
 }
