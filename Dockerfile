@@ -15,7 +15,8 @@ RUN npm install
 COPY . .
 
 ARG BASE_BACK_URL
-ENV VITE_API_BASE_URL=${BASE_BACK_URL:-'https://parlink-back-45e9515c2378.herokuapp.com'}
+# ENV VITE_API_BASE_URL=${BASE_BACK_URL:-'https://parlink-back-45e9515c2378.herokuapp.com'}
+ENV VITE_API_BASE_URL=${BASE_BACK_URL:-'https://parlinkback.vercel.app/'}
 
 # Build the application => TJ => JS
 RUN npm run build
