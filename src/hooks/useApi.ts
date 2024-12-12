@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosInstance } from 'axios';
 
-// Define interfaces for the expected response structure
 interface TokenData {
     access_token: string;
     refresh_token: string;
@@ -13,7 +12,6 @@ interface RefreshTokenResponse {
     };
 }
 
-// Type guard to verify the structure of the response
 function isRefreshTokenResponse(response: any): response is RefreshTokenResponse {
     return response && response.data && response.data.data && typeof response.data.data.access_token === 'string' && typeof response.data.data.refresh_token === 'string';
 }
@@ -46,43 +44,40 @@ export function useApi(): AxiosInstance {
 
                 if(!originalRequest._retry) {
                     originalRequest._retry = true;
-                } else return Promise.reject(error);
 
-                const refresh_token = localStorage.getItem("refresh_token");
+                    const refresh_token = localStorage.getItem("refresh_token");
 
-                if(refresh_token) {
-                    try {
-                        const result = await refreshToken(refresh_token);
+                    if(refresh_token) {
+                        try {
+                            const result = await refreshToken(refresh_token);
 
-                        if (isRefreshTokenResponse(result)) {
-                            const { access_token, refresh_token: new_refresh_token } = result.data.data;
+                            if (isRefreshTokenResponse(result)) {
+                                const { access_token, refresh_token: new_refresh_token } = await refreshToken(refresh_token);
 
-                            localStorage.setItem("access_token", access_token);
-                            localStorage.setItem("refresh_token", new_refresh_token);
+                                localStorage.setItem("access_token", access_token);
+                                localStorage.setItem("refresh_token", new_refresh_token);
 
-                            originalRequest.headers['Authorization'] = `Bearer ${access_token}`;
+                                originalRequest.headers['Authorization'] = `Bearer ${access_token}`;
 
-                            return api(originalRequest);
-                        } else {
-                            throw new Error('Invalid refresh token response');
+                                return api(originalRequest);
+                            } else {
+                                throw new Error('Invalid refresh token response');
+                            }
+                        } catch (refreshError) {
+                            console.error('Refresh token failed:', refreshError);
+                            clearTokensAndRedirect();
+                            return Promise.reject(refreshError);
                         }
-                    } catch (refreshError) {
-                        console.error('Refresh token failed:', refreshError);
-                        clearTokensAndRedirect();
-                        return Promise.reject(refreshError);
                     }
-                } else {
-                    clearTokensAndRedirect();
                 }
+                clearTokensAndRedirect();
             }
-
             if(error.response && error.response.status === 500) {
                 location.href = "/"
             }
-
             return Promise.reject(error);
         }
-    )
+    );
 
     return api;
 }
@@ -97,11 +92,11 @@ async function refreshToken(refresh_token: string): Promise<TokenData> {
     });
 
     const { data } = await apiRefresh.post('/auth/refresh_token');
-    return data; // Ensure the response structure matches the backend.
+    return data;
 }
 
 function clearTokensAndRedirect() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
-    window.location.href = '/login'; // Redirect to login page
+    window.location.href = '/login';
 }
