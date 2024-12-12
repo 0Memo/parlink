@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { signin } from '../../services/api/auth';
 import { Card } from 'flowbite-react';
+import { AxiosError } from 'axios';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -27,7 +28,6 @@ export default function LoginPage() {
     onSubmit: async values => {
       try {
         const response = await signin(values);
-
         if (response.data && response.data.access_token) {
           localStorage.setItem('access_token', response.data.access_token);
           localStorage.setItem('refresh_token', response.data.refresh_token);
@@ -35,8 +35,21 @@ export default function LoginPage() {
           navigate('/ads-grid');
         }
       } catch (error) {
-        console.error('Login failed', error);
         setLoginFailed(true);
+
+        if (error instanceof AxiosError) {
+          if (error.response) {
+            console.error('Response error:', error.response);
+          } else if (error.request) {
+            console.error('Request error:', error.request);
+          } else {
+            console.error('Axios error:', error.message);
+          }
+        } else if (error instanceof Error) {
+          console.error('Login failed:', error.message);
+        } else {
+          console.error('Unknown error:', error);
+        }
       }
     },
   });

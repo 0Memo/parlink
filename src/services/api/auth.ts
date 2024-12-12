@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import axios from "axios";
+// import axios from "axios";
 import { useApi } from "../../hooks/useApi.ts";
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -10,17 +10,34 @@ interface AuthSignin {
   password: string
 }
 
-export async function signin(body:AuthSignin) {
+export async function signin(body: AuthSignin): Promise<{
+  data: any; access_token: string; refresh_token: string
+}> {
   try {
-    const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/auth/login`, body);
-    return response.data;
-  } catch (error:any) {
-    if (error.response) {
-      console.error('Login Error Response:', error.response.data);
+    const response = await api.post('/auth/login', body, {
+      withCredentials: true,
+    });
+
+    if (response.data?.access_token && response.data?.refresh_token) {
+      const { access_token, refresh_token } = response.data;
+    
+      // Store tokens
+      localStorage.setItem('access_token', access_token);
+      localStorage.setItem('refresh_token', refresh_token);
+    
+      return response.data;
     } else {
-      console.error('Login Error Message:', error.message);
+      throw new Error('Invalid response structure from server');
     }
-    throw new Error(error);
+  } catch (error: any) {
+    if (error.response) {
+      console.error('Error response from server:', error.response.data);
+    } else if (error.request) {
+      console.error('No response received:', error.request);
+    } else {
+      console.error('Error during login:', error.message);
+    }
+    throw error;
   }
 }
 

@@ -18,13 +18,15 @@ function isRefreshTokenResponse(response: any): response is RefreshTokenResponse
     return response && response.data && response.data.data && typeof response.data.data.access_token === 'string' && typeof response.data.data.refresh_token === 'string';
 }
 
-export function useApi() {
+export function useApi(): AxiosInstance {
 
     const api: AxiosInstance = axios.create({
-        baseURL: import.meta.env.VITE_API_BASE_URL,
+        baseURL: import.meta.env.VITE_API_BASE_URL || "https://parlinkback.vercel.app",
+        withCredentials: true,
         headers: {
             "Content-Type": "application/json"
-        }
+        },
+        timeout: 10000,
     });
 
     api.interceptors.request.use((config) => {
@@ -37,8 +39,8 @@ export function useApi() {
     });
 
     api.interceptors.response.use(
-        (response:any) => response,
-        async (error:any) => {
+        (response) => response,
+        async (error) => {
             if(error.response && error.response.status === 401) {
                 const originalRequest = error.config;
 
@@ -64,14 +66,13 @@ export function useApi() {
                         } else {
                             throw new Error('Invalid refresh token response');
                         }
-                    } catch(error) {
-                        localStorage.removeItem('access_token');
-                        localStorage.removeItem('refresh_token');
-                        return Promise.reject(error);
+                    } catch (refreshError) {
+                        console.error('Refresh token failed:', refreshError);
+                        clearTokensAndRedirect();
+                        return Promise.reject(refreshError);
                     }
                 } else {
-                    localStorage.removeItem('access_token');
-                    localStorage.removeItem('refresh_token');
+                    clearTokensAndRedirect();
                 }
             }
 
@@ -86,27 +87,21 @@ export function useApi() {
     return api;
 }
 
-export async function refreshToken(refresh_token:string) {
-
-    const apiRefresh: AxiosInstance = axios.create({
-        baseURL: import.meta.env.VITE_API_BASE_URL,
-        headers: {
-            'Authorization' : "Bearer " + refresh_token 
-        }
+async function refreshToken(refresh_token: string): Promise<TokenData> {
+    const apiRefresh = axios.create({
+    baseURL: import.meta.env.VITE_API_BASE_URL || "https://parlinkback.vercel.app",
+    headers: {
+        Authorization: `Bearer ${refresh_token}`,
+        "Content-Type": "application/json",
+    },
     });
 
-    const headers = { Authorization : "Bearer " + refresh_token };
-    console.log('headers', headers)
-    // config.headers["Authorization"] = `Bearer ${token}`;
-    console.log("RefreshTokenFcn",refresh_token)
+    const { data } = await apiRefresh.post('/auth/refresh_token');
+    return data; // Ensure the response structure matches the backend.
+}
 
-    try {
-        const response = await apiRefresh.post(`${import.meta.env.VITE_API_BASE_URL}/auth/refresh_token`);
-
-        console.log('response', response)
-        
-        return response;
-    } catch (error) {
-        console.error('Erreur:', error);
-    }
+function clearTokensAndRedirect() {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    window.location.href = '/login'; // Redirect to login page
 }
