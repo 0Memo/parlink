@@ -19,7 +19,7 @@ function isRefreshTokenResponse(response: any): response is RefreshTokenResponse
 export function useApi(): AxiosInstance {
 
     const api: AxiosInstance = axios.create({
-        baseURL: import.meta.env.VITE_API_BASE_URL || "https://parlinkback.vercel.app",
+        baseURL: import.meta.env.VITE_API_BASE_URL || "https://web-production-40fd4.up.railway.app",
         withCredentials: true,
         headers: {
             "Content-Type": "application/json"
@@ -84,7 +84,7 @@ export function useApi(): AxiosInstance {
 
 async function refreshToken(refresh_token: string): Promise<TokenData> {
     const apiRefresh = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL || "https://parlinkback.vercel.app",
+    baseURL: import.meta.env.VITE_API_BASE_URL || "https://web-production-40fd4.up.railway.app",
     headers: {
         Authorization: `Bearer ${refresh_token}`,
         "Content-Type": "application/json",
