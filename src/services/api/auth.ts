@@ -4,7 +4,6 @@ import { useApi } from "../../hooks/useApi.ts";
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 const api = useApi();
-
 interface AuthSignin {
   email: string,
   password: string
