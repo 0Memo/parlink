@@ -15,7 +15,7 @@ RUN npm install
 COPY . .
 
 ARG BASE_BACK_URL
-ENV VITE_API_BASE_URL=${BASE_BACK_URL:-'https://web-production-40fd4.up.railway.app'}
+ENV VITE_API_BASE_URL=${BASE_BACK_URL:-'https://parlinkback.up.railway.app'}
 
 # Build the application => TJ => JS
 RUN npm run build
