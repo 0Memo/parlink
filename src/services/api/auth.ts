@@ -9,35 +9,15 @@ interface AuthSignin {
   password: string
 }
 
-export async function signin(body: AuthSignin): Promise<{
-  data: any; access_token: string; refresh_token: string
-}> {
+export async function signin(body: AuthSignin) {
   try {
-    const response = await api.post('/auth/login', body, {
-      withCredentials: true,
-    });
-
-    if (response.data?.access_token && response.data?.refresh_token) {
-      const { access_token, refresh_token } = response.data;
-    
-      // Store tokens
-      localStorage.setItem('access_token', access_token);
-      localStorage.setItem('refresh_token', refresh_token);
-    
-      return response.data;
-    } else {
-      throw new Error('Invalid response structure from server');
-    }
-  } catch (error: any) {
-    if (error.response) {
-      console.error('Error response from server:', error.response.data);
-    } else if (error.request) {
-      console.error('No response received:', error.request);
-    } else {
-      console.error('Error during login:', error.message);
-    }
-    throw error;
+    const response = await api.post(`auth/login`, body);
+    return response.data;
+  } catch (error:any) {
+    console.error('Login Error:', error.response || error.message);
+    throw new Error(error);
   }
+
 }
 
 export async function signOut() {
