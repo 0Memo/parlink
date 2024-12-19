@@ -17,7 +17,6 @@ export async function signin(body: AuthSignin) {
     console.error('Login Error:', error.response || error.message);
     throw new Error(error);
   }
-
 }
 
 export async function signOut() {
