@@ -8,10 +8,11 @@ import { ReactNode } from 'react';
 const libraries: Libraries = ['places', 'drawing', 'geometry'];
 
 export function MapProvider({ children }: { children: ReactNode }) {
+  const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API as string;
 
   // Load the Google Maps JavaScript API asynchronously
     const { isLoaded, loadError } = useJsApiLoader({
-        googleMapsApiKey: 'AIzaSyCiRGSR05s9hPcsy104Ss2IGQQLdZJoQKE',
+        googleMapsApiKey,
         libraries,
     });
 
