@@ -19,6 +19,8 @@ const navigationItems = [
 ];
 
 export default function FooterNav() {
+    const currentYear = new Date().getFullYear(); 
+    
     return (
         <>
             <Footer className="w-full bg-gray-200 mt-28 mb-18 sm:mt-48 scale-125 sm:scale-100 sm:fixed sm:relative sm:-bottom-8">                
@@ -75,7 +77,7 @@ export default function FooterNav() {
                             <FooterIcon href="#" icon={BsDribbble} />
                         </div>
                         <div className='flex justify-center items-center'>
-                            <FooterCopyright className='sm:text-xl' href="#" by="AquilDev™, Inc. | Tous droits reservés" year={2024} />
+                            <FooterCopyright className='sm:text-xl' href="#" by="AquilDev™, Inc. | Tous droits reservés" year={currentYear} />
                         </div>
                     </div>
                 </div>
