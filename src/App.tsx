@@ -30,6 +30,7 @@ const AdsDetailPage = lazy(() => import('./pages/Ads/AdsDetailPage'));
 const ForgotPswdPage = lazy(() => import('./pages/Auth/ForgotPswd'));
 
 function App() {
+  const [isConnected, setIsConnected] = useState(false);
   const [profiles, setProfiles] = useState<ProfileInterface[]>([]);
   const [contactForms, setContactForms] = useState<ContactInterface[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -45,19 +46,21 @@ function App() {
 
   return (
     <>
-      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      {isConnected && (
+        <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      )}
       <Routes>
           <Route path="/" element=
             {
             <Suspense fallback={<div>Chargement...</div>}>
-              <LoginPage />
+              <LoginPage setIsConnected={setIsConnected} />
             </Suspense>
             }
           />
           <Route path="/login" element=
             {
             <Suspense fallback={<div>Chargement...</div>}>
-              <LoginPage />
+              <LoginPage setIsConnected={setIsConnected} />
             </Suspense>
             }
           />

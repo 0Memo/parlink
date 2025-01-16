@@ -10,7 +10,7 @@ import { signin } from '../../services/api/auth';
 import { Card } from 'flowbite-react';
 import { AxiosError } from 'axios';
 
-export default function LoginPage() {
+export default function LoginPage({ setIsConnected }: { setIsConnected: (status: boolean) => void }) {
   const navigate = useNavigate();
   const [loginFailed, setLoginFailed] = useState(false);
 
@@ -32,6 +32,7 @@ export default function LoginPage() {
           localStorage.setItem('access_token', response.data.access_token);
           localStorage.setItem('refresh_token', response.data.refresh_token);
           setLoginFailed(false);
+          setIsConnected(true);
           navigate('/ads-grid');
         }
       } catch (error) {
