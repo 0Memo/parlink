@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { signin } from '../../services/api/auth';
 import { Card } from 'flowbite-react';
 import { AxiosError } from 'axios';
+import ParLink from '../../assets/parlink.png';
 
 export default function LoginPage({ setIsConnected }: { setIsConnected: (status: boolean) => void }) {
   const navigate = useNavigate();
@@ -58,8 +59,8 @@ export default function LoginPage({ setIsConnected }: { setIsConnected: (status:
   return (
     <>
       <div className="flex justify-center">
-      <Card className="w-full md:max-w-md md:mx-auto hover:bg-transparent">     
-          <h1 className="font-titleTest text-3xl my-8" data-cy="cypress-title">Connexion</h1><br />
+        <Card className="w-full md:max-w-md md:mx-auto hover:bg-transparent mb-56 sm:mb-16">
+          <img src={ParLink} alt="logo ParLink" className="my-8 h-10 sm:h-13 scale-150" data-cy="cypress-title"/>
           {loginFailed && <p className="text-red-500 text-sm">Identifiants incorrects</p>}
           <form onSubmit={handleSubmit}>
             <div className="mb-5">
@@ -117,9 +118,8 @@ export default function LoginPage({ setIsConnected }: { setIsConnected: (status:
           <div className="text-left">
                 <Link to="/createAdmin" className="ms-2 text-sm text-blue-400 dark:text-blue-300 hover:underline">Créer un compte Client</Link>
           </div>
-
-          </Card>
-        </div>
+        </Card>
+      </div>
     </>
   );
 }

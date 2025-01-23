@@ -82,10 +82,11 @@ const UserManagement = ({ handleSubmitUser }:any) => {
         <Accordion>
           { users && users.map((user:any) => (
             <Accordion.Panel key={user.id} className=''>
-              <Accordion.Title className=" hover:bg-violet-100">
-                <div className=" lg:w-[500px]  grid grid-cols-3 gap-4 ">
-                  <span className='flex gap-5 col-span-2' ><Avatar className='w-auto' img={user.Profile ? user.Profile.profilePicture : ""} alt={`${user.firstName} ${user.lastName}`} rounded size="sm" />
-                  <p className="truncate text-left text-sm font-medium text-gray-900 dark:text-white">{`${user.firstName} ${user.lastName}`}</p>
+              <Accordion.Title className="userData hover:bg-violet-100">
+                <div className="lg:w-[500px] grid grid-cols-3 gap-4 ">
+                  <span className='flex gap-5 col-span-2' >
+                    <Avatar className='w-auto' img={user.Profile ? user.Profile.profilePicture : ""} alt={`${user.firstName} ${user.lastName}`} rounded size="sm" />
+                    <p className="truncate text-left text-sm font-medium text-gray-900 dark:text-white">{`${user.firstName} ${user.lastName}`}</p>
                   </span>
                   <Link to={`/delete-user/${user.id}`} className={`flex justify-end  ${(user.delete === '1')?"text-red-800":(user.delete === '2')?"text-green-800":"text-gray-400"}`}>
 
@@ -95,7 +96,7 @@ const UserManagement = ({ handleSubmitUser }:any) => {
                   </Link>
                 </div>
               </Accordion.Title>
-              <Accordion.Content >
+              <Accordion.Content className="userContent" >
                 <div className="flex flex-col text-left">
                   <p className="truncate text-sm text-gray-500 dark:text-gray-400">Mail : {user.email}</p>
                   <p className="truncate text-sm text-gray-500 dark:text-gray-400">Téléphone : {user.Profile ? user.Profile.phone : ""}</p>
@@ -103,12 +104,12 @@ const UserManagement = ({ handleSubmitUser }:any) => {
                   <p className="truncate text-sm text-gray-500 dark:text-gray-400">Ville : {user.Profile ? user.Profile.city : ""}</p>
                   <p className="truncate text-sm text-gray-500 dark:text-gray-400">Code postal : {user.Profile ? user.Profile.postalCode : ""}</p><br />
 
-                  <List className="truncate text-sm text-gray-500 dark:text-gray-400">Enfants : 
+                  <List className="userChild truncate text-sm text-gray-500 dark:text-gray-400">Enfants : 
                     {user.userHasChild && user.userHasChild.map((child: any) => (
                       <List.Item key={child.children.id} className="truncate text-sm text-gray-500 dark:text-gray-400">{child.children.firstName +" "+child.children.lastName}</List.Item>
                     ))}
                   </List><br />
-                  <List className="truncate text-sm text-gray-500 dark:text-gray-400">Matières : 
+                  <List className="userTopic truncate text-sm text-gray-500 dark:text-gray-400">Matières : 
                   {user.userHasSubjects && user.userHasSubjects.map((subject: any) => ( 
                     <List.Item key={subject.subjects.id} className="truncate text-sm text-gray-500 dark:text-gray-400">{subject.subjects.name}</List.Item>))
                   }

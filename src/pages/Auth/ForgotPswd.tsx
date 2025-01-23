@@ -7,6 +7,7 @@ import {  updateUserPswd } from '../../services/api/user';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import ParLink from '../../assets/parlink.png';
 
 interface PropUserPage {
   handleSubmitUser: (author: any) => void;
@@ -72,14 +73,15 @@ export default function ForgotPswdPage(_props: PropUserPage) {
   });
 
   return (
-    <>
+    <div className='mb-56 sm:mb-0'>
       <div className="flex justify-center">
         <Card className="w-full md:max-w-md md:mx-auto hover:bg-transparent">
+          <img src={ParLink} alt="logo ParLink" className="h-10 sm:h-13 scale-150"/>
           <h5 className="text-2xl font-bold tracking-tight text-blue-800 dark:text-white">
             Changer mot de passe
           </h5>
           <form onSubmit={formik.handleSubmit} className="flex flex-col gap-4 w-full mx-auto">
-          <div className="col-grid-2">
+            <div className="col-grid-2">
               <FloatingLabel
                 variant="outlined"
                 label="Email"
@@ -127,13 +129,13 @@ export default function ForgotPswdPage(_props: PropUserPage) {
               />
               {formik.touched.password2 && formik.errors.password2 ? (<div>{formik.errors.password2}</div>) : null}
             </div>
-            <Button type="submit">Soumettre</Button>
+            <Button type="submit" className="mb-0">Soumettre</Button>
           </form>
           <div className="text-left">
             <Link to="/login" className="ms-2 text-sm text-blue-400 dark:text-blue-300 hover:underline">Se connecter</Link>
           </div>
         </Card>
       </div>
-    </>
+    </div>
   );
 }

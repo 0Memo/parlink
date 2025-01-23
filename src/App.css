@@ -8,6 +8,7 @@
   text-align: center;
   box-sizing: border-box;
   overflow: hidden;
+  position: relative;
 }
 
 main {
@@ -49,3 +50,79 @@ main {
 .read-the-docs {
   color: #888;
 }
+
+.additional-info {
+  background-repeat: no-repeat;
+  background: linear-gradient(to bottom, rgb(44, 46, 158) 0%, rgb(29, 20, 78) 100%);
+  box-shadow: 0 -10px 109px 0 rgba(0, 0, 0, 0.2);
+}
+
+.additional-info:after {
+  content: "\f085";
+  font-family: fontawesome;
+  font-size: 25em;
+  color: rgba(255, 255, 255, 0.15);
+  position: absolute;
+  top: 0;
+  left: -15%;
+  z-index: 0;
+}
+
+.tape {
+  font-size:3em;
+  height: 160px;
+  background-image: -webkit-linear-gradient(0deg,#222,transparent,#222),linear-gradient(transparent 30px, rgb(44, 46, 158) 30px), repeating-linear-gradient(45deg, transparent, transparent 35px, rgb(44, 46, 158) 35px, rgb(44, 46, 158) 70px);
+  background-image: -moz-linear-gradient(90deg,#222,transparent,#222),linear-gradient(transparent 30px, rgb(44, 46, 158) 30px), repeating-linear-gradient(45deg, transparent, transparent 35px, rgb(44, 46, 158) 35px, rgb(44, 46, 158) 70px);
+  background-image: -o-linear-gradient(90deg,#222,transparent,#222),linear-gradient(transparent 30px, rgb(44, 46, 158) 30px), repeating-linear-gradient(45deg, transparent, transparent 35px, rgb(44, 46, 158) 35px, rgb(44, 46, 158) 70px);
+  background-image: linear-gradient(90deg,#222,transparent,#222),linear-gradient(transparent 30px, rgb(44, 46, 158) 30px), repeating-linear-gradient(45deg, transparent, transparent 35px, rgb(44, 46, 158) 35px, rgb(44, 46, 158) 70px);
+  background-size: auto,auto 132px,auto;
+}
+
+.tape span{
+  cursor:default;
+  display: flex;
+  padding:0.75em;
+  white-space:nowrap;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  body {
+  background-color: #1c1c1e;
+  color: #fefefe;
+  }
+
+  .banner {
+    background-color: #fefefe !important;
+    border-radius: 3px;
+  }
+
+  .bannerIcon, .bannerText {
+    color: #1c1c1e !important;
+  }
+
+  .categories {
+    color: #fefefe !important;
+  }
+
+  .endMessage {
+    color: #fefefe !important;
+  }
+
+  .userData {
+    background-color: #fefefe !important;
+    color: #1c1c1e !important;
+  }
+
+  .userContent div p, .userChild, .userTopic {
+    color: "#fefefe" !important;
+  }
+
+  .userLinks {
+    background-color: #1c1c1e !important;
+    color: #fefefe !important;
+  }
+
+  .userLinks .listGroupItem:hover .link {
+    color: #1c1c1e !important;
+  }
+} */

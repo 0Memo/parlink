@@ -9,7 +9,7 @@ import { MdAddToPhotos } from "react-icons/md";
 import {registerClient} from '../../services/api/user'; 
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import Logo from '../../assets/logo.png';
+import ParLink from '../../assets/parlink.png';
 
 interface PropUserPage {
   handleSubmitUser: (author:any) => void;
@@ -78,7 +78,7 @@ export default function ClientAdminCreatePage(props: PropUserPage) {
     <>  
       <div className="p-3">
         <h5 className="text-2xl font-bold tracking-tight text-blue-800 dark:text-white mb-10">
-          <img src={Logo} alt="logo ParLink" className="ml-8 h-6 sm:h-9 scale-150"></img>
+          <img src={ParLink} alt="logo ParLink" className="h-6 sm:h-10 scale-150 ml-26 sm:ml-8"></img>
           Bienvenue sur votre application <span className='text-red-600'>Par</span><span className='text-blue-900'>Link</span>
         </h5>
     
@@ -103,7 +103,7 @@ export default function ClientAdminCreatePage(props: PropUserPage) {
             </ul>
           </div>
 
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 mb-48 sm:mb-0">
             <Card className="w-full md:max-w-md mx-auto md:mx-0">
               <h5 className="text-xl font-bold tracking-tight text-blue-800 dark:text-white mb-3">
                 Commencez dès maintenant

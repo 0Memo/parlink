@@ -20,6 +20,7 @@ export function useApi(): AxiosInstance {
 
     const api: AxiosInstance = axios.create({
         baseURL: import.meta.env.VITE_API_BASE_URL || "https://parlinkback.up.railway.app",
+        // baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:3000",
         withCredentials: true,
         headers: {
             "Content-Type": "application/json"
@@ -85,6 +86,7 @@ export function useApi(): AxiosInstance {
 async function refreshToken(refresh_token: string): Promise<TokenData> {
     const apiRefresh = axios.create({
     baseURL: import.meta.env.VITE_API_BASE_URL || "https://parlinkback.up.railway.app",
+    // baseURL: import.meta.env.VITE_API_BASE_URL || "http://locahost:3000",
     headers: {
         Authorization: `Bearer ${refresh_token}`,
         "Content-Type": "application/json",

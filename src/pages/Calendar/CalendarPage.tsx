@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { getAds, getAdById, getAdsByParams, getCategories, getSubCategories, getAdsByCategories, getAdsBySubCategories } from '../../services/api/ads';
-import MapButton from '../../components/Map/MapButton';
+// import MapButton from '../../components/Map/MapButton';
 import Sidebar from '../../components/Calendar/Sidebar';
 import FullCalendar from '../../components/Calendar/FullCalendar';
 import { EventInput } from '@fullcalendar/core';
@@ -209,7 +209,7 @@ export default function CalendarPage({ searchQuery }: { searchQuery: string }) {
                                 <span className='active:before:block active:before:absolute active:before:-inset-1 active:before:-skew-y-3 active:before:bg-blue-700 active:relative active:inline-block hover:before:block hover:before:absolute hover:before:-inset-1 hover:before:-skew-y-3 hover:before:bg-blue-700 hover:relative hover:inline-block'>
                                     <Label
                                         htmlFor={category}
-                                        className={`flex ${selectedCategories.includes(category) || (category === 'all' && isAllSelected) ? 'font-bold border-b-4 border-b-blue-800 active:relative active:text-white hover:relative hover:text-white text-xs sm:text-lg' : 'flex active:relative active:text-white hover:relative hover:text-white text-xs sm:text-lg'}`}
+                                        className={`categories flex ${selectedCategories.includes(category) || (category === 'all' && isAllSelected) ? 'font-bold border-b-4 border-b-blue-800 active:relative active:text-white hover:relative hover:text-white text-xs sm:text-lg' : 'flex active:relative active:text-white hover:relative hover:text-white text-xs sm:text-lg'}`}
                                     >
                                         {category === 'all' ? 'Toutes' : category}
                                     </Label>
@@ -274,7 +274,7 @@ export default function CalendarPage({ searchQuery }: { searchQuery: string }) {
                         events={adsList}
                     />
                 </div>
-                <MapButton />
+                {/* <MapButton /> */}
             </div>
         </>
     );

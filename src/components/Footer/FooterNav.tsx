@@ -22,8 +22,8 @@ export default function FooterNav() {
     const currentYear = new Date().getFullYear(); 
     
     return (
-        <>
-            <Footer className="w-full bg-gray-200 mt-28 mb-18 sm:mt-48 scale-125 sm:scale-100 sm:fixed sm:relative sm:-bottom-8">                
+        <div className='mt-52'>
+            <Footer className="w-full bg-gray-200 scale-100 absolute bottom-0 left-0">                
                 <div className="w-full">
                     <div className="grid w-full grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
                         <FooterLinkGroup col>
@@ -137,6 +137,6 @@ export default function FooterNav() {
                     </MegaMenu.Dropdown>
                 </div>
             </div>
-        </>
+        </div>
     );
 }

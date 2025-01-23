@@ -148,8 +148,8 @@ export default function AdCreatePage() {
   return (
     <>
       <div className="flex justify-center">
-        <Card className="w-full md:max-w-md md:mx-auto hover:bg-transparent">
-          <h5 className="text-2xl font-bold tracking-tight text-blue-800 dark:text-white">
+        <Card className="mt-8 w-full md:max-w-md md:mx-auto hover:bg-transparent">
+          <h5 className="text-2xl font-bold tracking-tight text-blue-800">
             Ajouter une annonce
           </h5>
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
