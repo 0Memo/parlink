@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import RequireAuth from './components/requireAuth';
 import { NavbarBanner } from './components/Navbar/NavbarBanner';
-import { Suspense, lazy, useState } from 'react';
+import { Suspense, createContext, lazy, useContext, useEffect, useState } from 'react';
 import { ProfileInterface } from './services/interfaces/Profile';
 import { ContactInterface } from './services/interfaces/Contact';
 import { User } from './services/interfaces/User';
@@ -32,8 +32,29 @@ const AdsDetailPage = lazy(() => import('./pages/Ads/AdsDetailPage'));
 const ForgotPswdPage = lazy(() => import('./pages/Auth/ForgotPswd'));
 const FooterNav = lazy(() => import('./components/Footer/FooterNav'));
 
+// Context for authentication
+const AuthContext = createContext<{ isConnected: boolean; setIsConnected: (value: boolean) => void } | null>(null);
+
+// Hook to use authentication context
+const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) throw new Error('useAuth must be used within AuthContextProvider');
+  return context;
+};
+
+console.log('useAuth', useAuth);
+
 function App() {
-  const [isConnected, setIsConnected] = useState(false);
+
+  // Authentication State and Synchronization
+  const [isConnected, setIsConnected] = useState<boolean>(() => {
+    return localStorage.getItem('isConnected') === 'true';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('isConnected', String(isConnected));
+  }, [isConnected]);
+  
   const [profiles, setProfiles] = useState<ProfileInterface[]>([]);
   const [contactForms, setContactForms] = useState<ContactInterface[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -47,7 +68,7 @@ function App() {
   }
 
   return (
-    <>
+    <AuthContext.Provider value={{ isConnected, setIsConnected }}>
       {isConnected && (
         <>
             <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
@@ -211,7 +232,7 @@ function App() {
         />
       </Routes>
       <FooterNav />
-    </>
+    </AuthContext.Provider>
   );
 }
 
