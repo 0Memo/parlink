@@ -43,6 +43,7 @@ export default function NavbarComponent({ searchQuery, setSearchQuery }: NavbarP
     const handleLogout = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         event.preventDefault();
         localStorage.removeItem('access_token');
+        localStorage.removeItem('isConnected');
         location.href = "/";
     };
 
