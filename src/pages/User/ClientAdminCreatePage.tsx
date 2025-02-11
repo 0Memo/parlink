@@ -79,7 +79,7 @@ export default function ClientAdminCreatePage(props: PropUserPage) {
       <div className="p-3">
         <h5 className="text-2xl font-bold tracking-tight text-blue-800 dark:text-white mb-10">
           <img src={ParLink} alt="logo ParLink" className="h-6 sm:h-10 scale-150 ml-26 sm:ml-8"></img>
-          Bienvenue sur votre application <span className='text-red-600'>Par</span><span className='text-blue-900'>Link</span>
+          Bienvenue sur votre application <span className='text-[#283A65]'>Par</span><span className='text-[#50BEDB]'>Link</span>
         </h5>
     
         <div className="flex flex-col md:flex-row md:items-start gap-5 m-3">
