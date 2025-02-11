@@ -10,7 +10,7 @@ export function NavbarBanner() {
     return (
         <Banner>
             <div className="banner flex h-24 sm:h-16 w-full justify-between border-b border-gray-200 bg-gray-50 p-4 dark:border-gray-600">
-                <div className="mx-auto flex items-center">
+                <div className="mx-auto flex flex-col items-center">
                     <p className="flex items-center text-sm font-h1 text-gray-500 dark:text-gray-400">
                         <HiMiniWrench className="mr-4 h-6 w-6 bannerIcon" />
                         <span className="[&_p]:inline text-lg bannerText">
