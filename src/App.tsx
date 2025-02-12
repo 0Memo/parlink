@@ -34,6 +34,9 @@ const FooterNav = lazy(() => import('./components/Footer/FooterNav'));
 const SiteMapPage = lazy(() => import('./components/SiteMap/SiteMap'));
 const Error404Page = lazy(() => import('./components/ErrorPages/Error404'));
 const Error418Page = lazy(() => import('./components/ErrorPages/Error418'));
+const CookiesPage = lazy(() => import('./components/Cookies/CookiesPage'));
+const DesktopPage = lazy(() => import('./components/Desktop/DesktopPage'));
+const MobilePage = lazy(() => import('./components/Mobile/MobilePage'));
 
 // Context for authentication
 const AuthContext = createContext<{ isConnected: boolean; setIsConnected: (value: boolean) => void } | null>(null);
@@ -228,6 +231,27 @@ function App() {
             {
             <Suspense fallback={<div>Chargement...</div>}>
               <SiteMapPage />
+            </Suspense>
+            }
+          />
+          <Route path="/cookies" element=
+            {
+            <Suspense fallback={<div>Chargement...</div>}>
+              <CookiesPage />
+            </Suspense>
+            }
+          />
+          <Route path="/mobile" element=
+            {
+            <Suspense fallback={<div>Chargement...</div>}>
+              <MobilePage />
+            </Suspense>
+            }
+          />
+          <Route path="/desktop" element=
+            {
+            <Suspense fallback={<div>Chargement...</div>}>
+              <DesktopPage />
             </Suspense>
             }
           />

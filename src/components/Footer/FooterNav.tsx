@@ -29,9 +29,9 @@ export default function FooterNav() {
                         <FooterLinkGroup col>
                             <div className="flex flex-col items-start justify-start">                                
                                 <FooterTitle title="Company" />
-                                <FooterLink href="#" className='sm:hidden'>ParLink</FooterLink>
-                                <FooterLink href="#" className='hidden sm:block'>À propos de ParLink</FooterLink>
-                                <FooterLink href="#">Plan du site</FooterLink>
+                                <FooterLink href="/about" className='sm:hidden'>ParLink</FooterLink>
+                                <FooterLink href="/about" className='hidden sm:block'>À propos de ParLink</FooterLink>
+                                <FooterLink href="/sitemap">Plan du site</FooterLink>
                             </div>
                         </FooterLinkGroup>
 
@@ -41,8 +41,8 @@ export default function FooterNav() {
                                 <FooterLink href="/contact">
                                     <span>Nous contacter</span>
                                 </FooterLink>
-                                <FooterLink href="#" className='sm:hidden'>Cookies</FooterLink>
-                                <FooterLink href="#" className='hidden sm:block'>Paramètres des cookies</FooterLink>
+                                <FooterLink href="/cookies" className='sm:hidden'>Cookies</FooterLink>
+                                <FooterLink href="/cookies" className='hidden sm:block'>Paramètres des cookies</FooterLink>
                             </div>
                         </FooterLinkGroup>
 
@@ -63,8 +63,8 @@ export default function FooterNav() {
                         <FooterLinkGroup col>
                             <div className="flex flex-col items-start justify-start">
                                 <FooterTitle title="download" />
-                                <FooterLink href="#">Mobile</FooterLink>
-                                <FooterLink href="#">Desktop</FooterLink>
+                                <FooterLink href="/mobile">Mobile</FooterLink>
+                                <FooterLink href="/desktop">Desktop</FooterLink>
                             </div>
                         </FooterLinkGroup>
                     </div>
@@ -72,13 +72,19 @@ export default function FooterNav() {
                         <div className="flex space-x-10 sm:space-x-4 sm:mt-0 justify-center items-center mb-3 sm:mb-0">
                             <FooterIcon href="https://github.com/valentina-alina" target="_blank" icon={BsGithub} />
                             <FooterIcon href="https://www.linkedin.com/in/valentina-alina/" icon={BsLinkedin} />
+                            <p className="font-bodyTest text-gray-500 font-semibold">
+                                Valentina
+                            </p>
                         </div>
                         <div className='flex justify-center items-center'>
                             <FooterCopyright className='sm:text-xl' href="#" by="AquilDev™, Inc. | Tous droits reservés" year={currentYear} />
                         </div>
-                        <div className="flex space-x-10 sm:space-x-4 sm:mt-0 justify-center items-center mb-3 sm:mb-0">
+                        <div className="flex space-x-10 sm:space-x-4 mt-3 sm:mt-0 justify-center items-center mb-3 sm:mb-0">
                             <FooterIcon href="https://github.com/0Memo" target="_blank" icon={BsGithub} />
                             <FooterIcon href="https://www.linkedin.com/in/guillaume-mehats/" target="_blank" icon={BsLinkedin} />
+                            <p className="font-bodyTest text-gray-500 font-semibold">
+                                Guillermo
+                            </p>
                         </div>
                     </div>
                 </div>
