@@ -5,7 +5,7 @@ import { IoMdAddCircle } from "react-icons/io";
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
 import { Footer, FooterCopyright, FooterIcon, FooterLink, FooterLinkGroup, FooterTitle } from "flowbite-react";
-import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { ListGroup, MegaMenu } from "flowbite-react";
 
 const cssClasIcons = "w-[35px] h-[40px]  ";
@@ -70,14 +70,15 @@ export default function FooterNav() {
                     </div>
                     <div className="w-full bg-gray-300 px-4 pt-5 pb-24 sm:py-5 flex flex-col sm:flex-row items-center justify-between">
                         <div className="flex space-x-10 sm:space-x-4 sm:mt-0 justify-center items-center mb-3 sm:mb-0">
-                            <FooterIcon href="#" icon={BsFacebook} />
-                            <FooterIcon href="#" icon={BsInstagram} />
-                            <FooterIcon href="#" icon={BsTwitter} />
-                            <FooterIcon href="#" icon={BsGithub} />
-                            <FooterIcon href="#" icon={BsDribbble} />
+                            <FooterIcon href="https://github.com/valentina-alina" target="_blank" icon={BsGithub} />
+                            <FooterIcon href="https://www.linkedin.com/in/valentina-alina/" icon={BsLinkedin} />
                         </div>
                         <div className='flex justify-center items-center'>
                             <FooterCopyright className='sm:text-xl' href="#" by="AquilDev™, Inc. | Tous droits reservés" year={currentYear} />
+                        </div>
+                        <div className="flex space-x-10 sm:space-x-4 sm:mt-0 justify-center items-center mb-3 sm:mb-0">
+                            <FooterIcon href="https://github.com/0Memo" target="_blank" icon={BsGithub} />
+                            <FooterIcon href="https://www.linkedin.com/in/guillaume-mehats/" target="_blank" icon={BsLinkedin} />
                         </div>
                     </div>
                 </div>

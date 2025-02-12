@@ -31,6 +31,9 @@ const AdSubscriptionPage = lazy(() => import('./pages/Ads/AdSubscriptionPage'));
 const AdsDetailPage = lazy(() => import('./pages/Ads/AdsDetailPage'));
 const ForgotPswdPage = lazy(() => import('./pages/Auth/ForgotPswd'));
 const FooterNav = lazy(() => import('./components/Footer/FooterNav'));
+const SiteMapPage = lazy(() => import('./components/SiteMap/SiteMap'));
+const Error404Page = lazy(() => import('./components/ErrorPages/Error404'));
+const Error418Page = lazy(() => import('./components/ErrorPages/Error418'));
 
 // Context for authentication
 const AuthContext = createContext<{ isConnected: boolean; setIsConnected: (value: boolean) => void } | null>(null);
@@ -221,12 +224,33 @@ function App() {
             </Suspense>
             }
           />
+          <Route path="/sitemap" element=
+            {
+            <Suspense fallback={<div>Chargement...</div>}>
+              <SiteMapPage />
+            </Suspense>
+            }
+          />
         </Route>
       
         <Route path="*" element=
           {
           <Suspense fallback={<div>Chargement...</div>}>
             <NotFoundPage />
+          </Suspense>
+          }
+        />
+        <Route path="/404" element=
+          {
+          <Suspense fallback={<div>Chargement...</div>}>
+            <Error404Page />
+          </Suspense>
+          }
+        />
+        <Route path="/418" element=
+          {
+          <Suspense fallback={<div>Chargement...</div>}>
+            <Error418Page />
           </Suspense>
           }
         />
