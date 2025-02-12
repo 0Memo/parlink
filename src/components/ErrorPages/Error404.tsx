@@ -6,7 +6,7 @@ import { Button } from 'flowbite-react';
 const Error404 = () => {
     return (
         <>
-            <section className="container-fluid smoke sm:-mb-56">
+            <section className="smoke sm:-mb-56">
                 <div className="mb-5">
                     <ul>
                         <li>E</li>
