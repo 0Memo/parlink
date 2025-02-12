@@ -27,7 +27,7 @@ const Error418 = () => {
                     <img src={Teapot} alt="i'm a teapot" />
                 </div>
 
-                <div className="text-center p-5">
+                <div className="text-center p-5 mb-24">
                     <p>Je suis une théière, je ne suis pas là pour faire le café !</p>
                     <p>Ne partez pas sans avoir passez votre souris sur le titre, vous verrez ça vaut le coup !</p>
                     <Link to="/ads-grid" className="text-center flex justify-center">
