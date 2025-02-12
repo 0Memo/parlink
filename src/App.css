@@ -1,3 +1,10 @@
+html, body {
+  height: 100%; /* Ensures the page takes up the full viewport height */
+  margin: 0; /* Remove default margin */
+  display: flex; /* Using flexbox to allow easy layout control */
+  flex-direction: column; /* Stack content vertically */
+}
+
 #root {
   display: flex;
   flex-direction: column;
