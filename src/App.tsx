@@ -77,11 +77,9 @@ function App() {
   return (
     <AuthContext.Provider value={{ isConnected, setIsConnected }}>
       {isConnected && (
-        <>
-            <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-            <NavbarBanner />
-        </>
+        <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       )}
+      <NavbarBanner />
       <Routes>
         <Route path="/" element=
           {

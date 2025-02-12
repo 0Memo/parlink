@@ -6,12 +6,12 @@ import { MegaMenu } from 'flowbite-react';
 const SiteMap = () => {
     return (
         <>
-            <h1 className="text-center text-4xl py-4">
+            <h1 className="text-center text-4xl pt-4">
                 Plan du site
             </h1>
             <div className="separator"></div>
             <MegaMenu>
-                    <ul className="mx-auto mt-6 inline-grid max-w-screen-xl px-4 py-5 mb-60 sm:mb-0 grid-cols-2 sm:grid-cols-2 md:grid-cols-4 md:px-6 gap-6">
+                    <ul className="mx-auto mt-6 inline-grid max-w-screen-xl px-4 py-5 mb-60 sm:-mb-20 grid-cols-2 sm:grid-cols-2 md:grid-cols-4 md:px-6 gap-8">
                         <li>
                             <Link to="/ads-grid" className="block rounded-lg p-3 hover:bg-gray-50 dark:hover:bg-gray-700">
                                     <svg
