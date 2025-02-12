@@ -1,14 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { getAds, getAdById, getAdsByParams, getCategories, getSubCategories, getAdsByCategories, getAdsBySubCategories } from '../../services/api/ads';
-// import MapButton from '../../components/Map/MapButton';
 import Sidebar from '../../components/Calendar/Sidebar';
 import FullCalendar from '../../components/Calendar/FullCalendar';
 import { EventInput } from '@fullcalendar/core';
 import { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Label, TextInput } from 'flowbite-react';
-// import fakerCategories from '../Ads/fakerCategories';
 import { HiSearch } from "react-icons/hi";
 import { debounce } from '../../services/utils/debounce';
 
@@ -274,7 +272,6 @@ export default function CalendarPage({ searchQuery }: { searchQuery: string }) {
                         events={adsList}
                     />
                 </div>
-                {/* <MapButton /> */}
             </div>
         </>
     );

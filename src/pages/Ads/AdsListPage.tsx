@@ -7,7 +7,6 @@ import { Link, useParams } from 'react-router-dom';
 import { Card, Carousel, Label, TextInput } from "flowbite-react";
 import { HiViewList, HiSearch } from "react-icons/hi";
 import { MdOutlineApps } from "react-icons/md";
-// import MapButton from '../../components/Map/MapButton';
 import { CiEdit } from "react-icons/ci";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { getAds, getAdById, getAdsByParams, getCategories, getSubCategories, getAdsByCategories, getAdsBySubCategories } from '../../services/api/ads';
@@ -390,7 +389,6 @@ export default function AdsListPage({ searchQuery }: { searchQuery: string }) {
                     ))}
                 </div>
             </InfiniteScroll>
-            {/* <MapButton /> */}
         </>
     );
 }

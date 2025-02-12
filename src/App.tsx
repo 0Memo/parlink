@@ -37,6 +37,7 @@ const Error418Page = lazy(() => import('./components/ErrorPages/Error418'));
 const CookiesPage = lazy(() => import('./components/Cookies/CookiesPage'));
 const DesktopPage = lazy(() => import('./components/Desktop/DesktopPage'));
 const MobilePage = lazy(() => import('./components/Mobile/MobilePage'));
+const AboutPage = lazy(() => import('./pages/About/AboutPage'));
 
 // Context for authentication
 const AuthContext = createContext<{ isConnected: boolean; setIsConnected: (value: boolean) => void } | null>(null);
@@ -182,6 +183,13 @@ function App() {
             {
             <Suspense fallback={<div>Chargement...</div>}>
               <ChatPage />
+            </Suspense>
+            }
+          />
+          <Route path="/about" element=
+            {
+            <Suspense fallback={<div>Chargement...</div>}>
+              <AboutPage />
             </Suspense>
             }
           />
