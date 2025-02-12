@@ -96,7 +96,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3b3b3b;
+  background-color: #000;
   flex-direction: column;
   height: auto;
 }
