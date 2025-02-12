@@ -22,6 +22,8 @@ const Error404 = () => {
                     </ul>
                 </div>
 
+                <div className='py-3'></div>
+
                 <div className="text-center p-5 mb-24">
                     <p>Oops..! La page que vous cherchez n'existe pas.</p>
                     <p>Ne partez pas sans avoir passez votre souris sur le titre, vous verrez ça vaut le coup !</p>
