@@ -11,11 +11,6 @@
   position: relative;
 }
 
-body, html {
-  height: 100%;
-  margin: 0;
-}
-
 main {
   flex: 1; /* This makes the main content area flexible to take up available space */
 }
