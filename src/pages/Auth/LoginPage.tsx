@@ -46,8 +46,8 @@ export default function LoginPage({ setIsConnected }: { setIsConnected: (status:
   return (
     <>
       <div className="flex justify-center">
-      <Card className="w-full md:max-w-md md:mx-auto hover:bg-transparent">
-        <img src={ParLink} alt="logo ParLink" className="h-10 sm:h-13 scale-150"/>
+        <Card className="w-full md:max-w-md md:mx-auto hover:bg-transparent">
+          <img src={ParLink} alt="logo ParLink" className="h-10 sm:h-13 scale-150"/>
           <h5 className="text-2xl font-bold tracking-tight text-blue-800 dark:text-white mb-3"
           data-cy="cypress-title">Connexion</h5>
           {loginFailed && <p className="text-red-500 text-sm">Identifiants incorrects</p>}
@@ -88,14 +88,13 @@ export default function LoginPage({ setIsConnected }: { setIsConnected: (status:
             </div>
             
             <div  className=" flex items-center justify-center">
-            <button
-              type="submit"
-              data-cy="login"
-              className="relative flex items-center  p-1 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-blue-900 gap-2 mt-2 w-30" 
-            >
-              <span className="relative text-white m-1">Connexion</span>
-
-            </button>
+              <button
+                type="submit"
+                data-cy="login"
+                className="relative flex items-center  p-1 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-blue-900 gap-2 mt-2 w-30" 
+              >
+                <span className="relative text-white m-1">Connexion</span>
+              </button>
             </div>
         
             <div className="grid grid-cols-1 md:grid-cols-2">
@@ -108,20 +107,18 @@ export default function LoginPage({ setIsConnected }: { setIsConnected: (status:
                 />
                 <label htmlFor="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Se souvenir de moi</label> */}
               </div>
-              
             </div> 
-          
           </form>
           <div className="flex flex-col  md:flex-row md:justify-between">
-          <div className="text-left my-1">
-                <Link to="/forgot-password-page" className="ms-2 text-sm text-blue-800 dark:text-blue-300 hover:underline"><strong>Mot de passe oublié ?</strong></Link>
-              </div>
-          <div className="text-left my-1">
-                <Link to="/createAdmin" className="ms-2 text-sm text-blue-800 dark:text-blue-300 hover:underline"><strong>Créer un compte Client</strong></Link>
+            <div className="text-left my-1">
+              <Link to="/forgot-password-page" className="ms-2 text-sm text-blue-800 dark:text-blue-300 hover:underline"><strong>Mot de passe oublié ?</strong></Link>
+            </div>
+            <div className="text-left my-1">
+              <Link to="/createAdmin" className="ms-2 text-sm text-blue-800 dark:text-blue-300 hover:underline"><strong>Créer un compte Client</strong></Link>
+            </div>
           </div>
-</div>
-          </Card>
-        </div>
+        </Card>
+      </div>
     </>
   );
 }
