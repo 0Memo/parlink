@@ -78,6 +78,7 @@ export default function FooterNav() {
                         </div>
                         <div className='flex justify-center items-center'>
                             <FooterCopyright className='sm:text-xl' href="#" by="AquilDev™, Inc. | Tous droits reservés" year={currentYear} />
+                            <a href="javascript:window.print()" className="sm:ml-2 mt-0.5 text-sm sm:text-lg text-gray-700 sm:text-gray-400 sm:font-semibold">Imprimer la page</a>
                         </div>
                         <div className="flex space-x-10 sm:space-x-4 mt-3 sm:mt-0 justify-center items-center mb-3 sm:mb-0">
                             <FooterIcon href="https://github.com/0Memo" target="_blank" icon={BsGithub} />
