@@ -22,7 +22,23 @@ const Error404 = () => {
                     </ul>
                 </div>
 
-                <div className='py-3'></div>
+                <div className="o-cat">
+                    <div className="m-ears">
+                    <div className="m-ear -right"></div>
+                    <div className="m-ear -left"></div>
+                    </div>
+                    <div className="m-face">
+                    <div className="m-eyes">
+                        <div className="m-eye -left">
+                        <div className="a-eyePupil"></div>
+                        </div>
+                        <div className="m-eye -right">
+                        <div className="a-eyePupil"></div>
+                        </div>
+                    </div>
+                    <div className="m-nose"></div>
+                    </div>
+                </div>
 
                 <div className="text-center p-5 mb-24">
                     <p>Oops..! La page que vous cherchez n'existe pas.</p>
