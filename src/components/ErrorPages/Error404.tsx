@@ -7,7 +7,7 @@ const Error404 = () => {
     return (
         <>
             <section className="smoke sm:-mb-56">
-                <div className="mb-5">
+                <div className="mb-2 pt-5">
                     <ul>
                         <li>E</li>
                         <li>R</li>
