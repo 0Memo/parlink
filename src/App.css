@@ -11,6 +11,11 @@
   position: relative;
 }
 
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
 main {
   flex: 1; /* This makes the main content area flexible to take up available space */
 }
@@ -211,10 +216,6 @@ main {
   }
 }
 
-/* .siteMap {
-  height: 100vh;
-} */
-
 @media (max-width: 991.98px) {
   .siteMap {
       height: 100%;
@@ -228,45 +229,3 @@ main {
   width: 50%;
   margin: auto;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  body {
-  background-color: #1c1c1e;
-  color: #fefefe;
-  }
-
-  .banner {
-    background-color: #fefefe !important;
-    border-radius: 3px;
-  }
-
-  .bannerIcon, .bannerText {
-    color: #1c1c1e !important;
-  }
-
-  .categories {
-    color: #fefefe !important;
-  }
-
-  .endMessage {
-    color: #fefefe !important;
-  }
-
-  .userData {
-    background-color: #fefefe !important;
-    color: #1c1c1e !important;
-  }
-
-  .userContent div p, .userChild, .userTopic {
-    color: "#fefefe" !important;
-  }
-
-  .userLinks {
-    background-color: #1c1c1e !important;
-    color: #fefefe !important;
-  }
-
-  .userLinks .listGroupItem:hover .link {
-    color: #1c1c1e !important;
-  }
-} */

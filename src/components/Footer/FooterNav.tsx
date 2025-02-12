@@ -30,75 +30,82 @@ export default function FooterNav() {
     
     return (
         <>
-            <div className='h-64'></div>
-            <div className='mt-52'>
-                <Footer className="w-full bg-gray-200 scale-100 absolute bottom-0 left-0">                
-                    <div className="w-full">
-                        <div className="grid w-full grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
-                            <FooterLinkGroup col>
-                                <div className="flex flex-col items-start justify-start">                                
-                                    <FooterTitle title="Company" />
-                                    <FooterLink href="/about" className='sm:hidden'>ParLink</FooterLink>
-                                    <FooterLink href="/about" className='hidden sm:block'>À propos de ParLink</FooterLink>
-                                    <FooterLink href="/sitemap">Plan du site</FooterLink>
+            <div className="flex flex-col min-h-screen">
+                <div className="flex-grow">
+                    <div className="h-full">
+                        <div className='mt-52'>
+                            <Footer className="w-full bg-gray-200 scale-100 absolute bottom-0 left-0">                
+                                <div className="w-full">
+                                    <div className="grid w-full grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
+                                        <FooterLinkGroup col>
+                                            <div className="flex flex-col items-start justify-start">                                
+                                                <FooterTitle title="Company" />
+                                                <FooterLink href="/about" className='sm:hidden'>ParLink</FooterLink>
+                                                <FooterLink href="/about" className='hidden sm:block'>À propos de ParLink</FooterLink>
+                                                <FooterLink href="/sitemap">Plan du site</FooterLink>
+                                            </div>
+                                        </FooterLinkGroup>
+                        
+                                        <FooterLinkGroup col>
+                                            <div className="flex flex-col items-start justify-start">
+                                                <FooterTitle title="help center" />
+                                                <FooterLink href="/contact">
+                                                    <span>Nous contacter</span>
+                                                </FooterLink>
+                                                <FooterLink href="/cookies" className='sm:hidden'>Cookies</FooterLink>
+                                                <FooterLink href="/cookies" className='hidden sm:block'>Paramètres des cookies</FooterLink>
+                                            </div>
+                                        </FooterLinkGroup>
+                        
+                                        <FooterLinkGroup col>
+                                            <div className="flex flex-col items-start justify-start">
+                                                <FooterTitle title="legal" />
+                                                <FooterLink href="/legal" className='sm:hidden'>Mentions</FooterLink>
+                                                <FooterLink href="/legal" className='hidden sm:block'>Mentions Légales</FooterLink>
+                                                <FooterLink href="/confidentiality" className='sm:hidden'>
+                                                    Confidentialité
+                                                </FooterLink>
+                                                <FooterLink href="/confidentiality" className='hidden sm:block'>
+                                                    Politique de confidentialité
+                                                </FooterLink>
+                                            </div>
+                                        </FooterLinkGroup>
+                        
+                                        <FooterLinkGroup col>
+                                            <div className="flex flex-col items-start justify-start">
+                                                <FooterTitle title="download" />
+                                                <FooterLink href="/mobile">Mobile</FooterLink>
+                                                <FooterLink href="/desktop">Desktop</FooterLink>
+                                            </div>
+                                        </FooterLinkGroup>
+                                    </div>
+                                    <div className="w-full bg-gray-300 px-4 pt-5 pb-24 sm:py-5 flex flex-col sm:flex-row items-center justify-between">
+                                        <div className="flex space-x-10 sm:space-x-4 sm:mt-0 justify-center items-center mb-3 sm:mb-0">
+                                            <FooterIcon href="https://github.com/valentina-alina" target="_blank" icon={BsGithub} />
+                                            <FooterIcon href="https://www.linkedin.com/in/valentina-alina/" icon={BsLinkedin} />
+                                            <p className="font-bodyTest text-gray-500 font-semibold">
+                                                Valentina
+                                            </p>
+                                        </div>
+                                        <div className='flex justify-center items-center'>
+                                            <FooterCopyright className='sm:text-xl' href="#" by="AquilDev™, Inc. | Tous droits reservés" year={currentYear} />
+                                            <a href="javascript:window.print()" className="sm:ml-2 mt-0.5 text-sm sm:text-lg text-gray-700 sm:text-gray-400 sm:font-semibold">Imprimer la page</a>
+                                        </div>
+                                        <div className="flex space-x-10 sm:space-x-4 mt-3 sm:mt-0 justify-center items-center mb-3 sm:mb-0">
+                                            <FooterIcon href="https://github.com/0Memo" target="_blank" icon={BsGithub} />
+                                            <FooterIcon href="https://www.linkedin.com/in/guillaume-mehats/" target="_blank" icon={BsLinkedin} />
+                                            <p className="font-bodyTest text-gray-500 font-semibold">
+                                                Guillermo
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </FooterLinkGroup>
-            
-                            <FooterLinkGroup col>
-                                <div className="flex flex-col items-start justify-start">
-                                    <FooterTitle title="help center" />
-                                    <FooterLink href="/contact">
-                                        <span>Nous contacter</span>
-                                    </FooterLink>
-                                    <FooterLink href="/cookies" className='sm:hidden'>Cookies</FooterLink>
-                                    <FooterLink href="/cookies" className='hidden sm:block'>Paramètres des cookies</FooterLink>
-                                </div>
-                            </FooterLinkGroup>
-            
-                            <FooterLinkGroup col>
-                                <div className="flex flex-col items-start justify-start">
-                                    <FooterTitle title="legal" />
-                                    <FooterLink href="/legal" className='sm:hidden'>Mentions</FooterLink>
-                                    <FooterLink href="/legal" className='hidden sm:block'>Mentions Légales</FooterLink>
-                                    <FooterLink href="/confidentiality" className='sm:hidden'>
-                                        Confidentialité
-                                    </FooterLink>
-                                    <FooterLink href="/confidentiality" className='hidden sm:block'>
-                                        Politique de confidentialité
-                                    </FooterLink>
-                                </div>
-                            </FooterLinkGroup>
-            
-                            <FooterLinkGroup col>
-                                <div className="flex flex-col items-start justify-start">
-                                    <FooterTitle title="download" />
-                                    <FooterLink href="/mobile">Mobile</FooterLink>
-                                    <FooterLink href="/desktop">Desktop</FooterLink>
-                                </div>
-                            </FooterLinkGroup>
-                        </div>
-                        <div className="w-full bg-gray-300 px-4 pt-5 pb-24 sm:py-5 flex flex-col sm:flex-row items-center justify-between">
-                            <div className="flex space-x-10 sm:space-x-4 sm:mt-0 justify-center items-center mb-3 sm:mb-0">
-                                <FooterIcon href="https://github.com/valentina-alina" target="_blank" icon={BsGithub} />
-                                <FooterIcon href="https://www.linkedin.com/in/valentina-alina/" icon={BsLinkedin} />
-                                <p className="font-bodyTest text-gray-500 font-semibold">
-                                    Valentina
-                                </p>
-                            </div>
-                            <div className='flex justify-center items-center'>
-                                <FooterCopyright className='sm:text-xl' href="#" by="AquilDev™, Inc. | Tous droits reservés" year={currentYear} />
-                                <a href="javascript:window.print()" className="sm:ml-2 mt-0.5 text-sm sm:text-lg text-gray-700 sm:text-gray-400 sm:font-semibold">Imprimer la page</a>
-                            </div>
-                            <div className="flex space-x-10 sm:space-x-4 mt-3 sm:mt-0 justify-center items-center mb-3 sm:mb-0">
-                                <FooterIcon href="https://github.com/0Memo" target="_blank" icon={BsGithub} />
-                                <FooterIcon href="https://www.linkedin.com/in/guillaume-mehats/" target="_blank" icon={BsLinkedin} />
-                                <p className="font-bodyTest text-gray-500 font-semibold">
-                                    Guillermo
-                                </p>
-                            </div>
+                            </Footer>
                         </div>
                     </div>
-                </Footer>
+                </div>
+
+
                 <div className="fixed lg:hidden bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600 tablet p-3 scale-110">
                     
                     <div className="grid h-full max-w-lg grid-cols-5 font-medium">
