@@ -47,13 +47,13 @@ export default function LoginPage({ setIsConnected }: { setIsConnected: (status:
     <>
       <div className="flex justify-center">
         <Card className="w-full md:max-w-md md:mx-auto hover:bg-transparent">
-          <img src={ParLink} alt="logo ParLink" className="h-10 sm:h-13 scale-150"/>
-          <h5 className="text-2xl font-bold tracking-tight text-blue-800 dark:text-white mb-3"
+          <img src={ParLink} alt="logo ParLink" className="h-10 scale-150 sm:h-13"/>
+          <h5 className="mb-3 text-2xl font-bold tracking-tight text-blue-800 dark:text-white"
           data-cy="cypress-title">Connexion</h5>
-          {loginFailed && <p className="text-red-500 text-sm">Identifiants incorrects</p>}
+          {loginFailed && <p className="text-sm text-red-500">Identifiants incorrects</p>}
           <form onSubmit={handleSubmit}>
             <div className="mb-5">
-              <label htmlFor="email" className="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-white">Email</label>
+              <label htmlFor="email" className="block mb-2 text-sm font-medium text-left text-gray-900 dark:text-white">Email</label>
               <input
                 onChange={handleChange}
                 value={values.email}
@@ -65,10 +65,10 @@ export default function LoginPage({ setIsConnected }: { setIsConnected: (status:
                 placeholder=""
                 required
               />
-              {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+              {errors.email && <p className="text-sm text-red-500">{errors.email}</p>}
             </div>
             <div className="mb-5">
-              <label htmlFor="password" className="block mb-2 text-sm text-left font-medium text-gray-900 dark:text-white">Mot de passe</label>
+              <label htmlFor="password" className="block mb-2 text-sm font-medium text-left text-gray-900 dark:text-white">Mot de passe</label>
               <input
                 onChange={handleChange}
                 value={values.password}
@@ -79,21 +79,16 @@ export default function LoginPage({ setIsConnected }: { setIsConnected: (status:
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               />
-              {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
-            </div>
-
-            <div  className=" flex flex-col text-sm ">
-              <p className='text-start'>Username : admin@email.fr</p>
-              <p className='text-start'>Mdp : admin</p>
+              {errors.password && <p className="text-sm text-red-500">{errors.password}</p>}
             </div>
             
-            <div  className=" flex items-center justify-center">
+            <div  className="flex items-center justify-center ">
               <button
                 type="submit"
                 data-cy="login"
-                className="relative flex items-center  p-1 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-blue-900 gap-2 mt-2 w-30" 
+                className="relative flex items-center gap-2 p-1 mt-2 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-blue-900 w-30" 
               >
-                <span className="relative text-white m-1">Connexion</span>
+                <span className="relative m-1 text-white">Connexion</span>
               </button>
             </div>
         
@@ -105,16 +100,16 @@ export default function LoginPage({ setIsConnected }: { setIsConnected: (status:
                   value=""
                   className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-800 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
                 />
-                <label htmlFor="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Se souvenir de moi</label> */}
+                <label htmlFor="remember" className="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">Se souvenir de moi</label> */}
               </div>
             </div> 
           </form>
-          <div className="flex flex-col  md:flex-row md:justify-between">
-            <div className="text-left my-1">
-              <Link to="/forgot-password-page" className="ms-2 text-sm text-blue-800 dark:text-blue-300 hover:underline"><strong>Mot de passe oublié ?</strong></Link>
+          <div className="flex flex-col md:flex-row md:justify-between">
+            <div className="my-1 text-left">
+              <Link to="/forgot-password-page" className="text-sm text-blue-800 ms-2 dark:text-blue-300 hover:underline"><strong>Mot de passe oublié ?</strong></Link>
             </div>
-            <div className="text-left my-1">
-              <Link to="/createAdmin" className="ms-2 text-sm text-blue-800 dark:text-blue-300 hover:underline"><strong>Créer un compte Client</strong></Link>
+            <div className="my-1 text-left">
+              <Link to="/createAdmin" className="text-sm text-blue-800 ms-2 dark:text-blue-300 hover:underline"><strong>Créer un compte Client</strong></Link>
             </div>
           </div>
         </Card>
